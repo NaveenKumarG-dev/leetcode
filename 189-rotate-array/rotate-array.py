@@ -3,8 +3,17 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        while k!=0:
-            nums.insert(0,nums[-1])
-            nums.pop()
-            k-=1
+        n = len(nums)
+        k = k % n
+
+        def reverse(left,right):
+            while left < right :
+                temp = nums[left]
+                nums[left] = nums[right]
+                nums[right] = temp
+                left+=1
+                right-=1
+
+        reverse(0,n-1)   
+        reverse(0,k-1)   
+        reverse(k,n-1)   
