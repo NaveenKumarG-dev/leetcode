@@ -1,10 +1,5 @@
-class Solution(object):
-    def runningSum(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
-        
+class Solution:
+    def runningSum(self, nums: List[int]) -> List[int]:
         running_sums = []
         sum = 0
         
