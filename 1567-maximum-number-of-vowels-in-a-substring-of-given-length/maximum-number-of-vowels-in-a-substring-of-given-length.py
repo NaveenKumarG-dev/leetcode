@@ -1,25 +1,22 @@
 class Solution:
-
-    def is_vowel(self,s):
-        if s in "aeiou":
-            return True
-        else:
-            return False
-
     def maxVowels(self, s: str, k: int) -> int:
+        vowels = "aeiou"
         
-        max = 0
-        for i in s[:k]:
-            if self.is_vowel(i):
-                max+=1
-        current = max
+        current = 0
 
-        for i in range(1,len(s)-k+1):
-            if self.is_vowel(s[i-1]):
-                current-=1
-            if self.is_vowel(s[i+k-1]):
-                current+=1
+        for i in range(k):
+            if s[i] in vowels:
+                current += 1
 
-            max = current if current>max else max
-        
-        return max
+        maximum = current
+
+        for i in range(k, len(s)):
+            if s[i - k] in vowels:
+                current -= 1
+
+            if s[i] in vowels:
+                current += 1
+
+            maximum = max(maximum, current)
+
+        return maximum
