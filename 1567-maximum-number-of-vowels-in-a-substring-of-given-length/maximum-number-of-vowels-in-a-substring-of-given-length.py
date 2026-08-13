@@ -10,11 +10,11 @@ class Solution:
 
         maximum = current
 
-        for i in range(k, len(s)):
-            if s[i - k] in vowels:
+        for i in range(1, len(s)-k+1):
+            if s[i - 1] in vowels:
                 current -= 1
 
-            if s[i] in vowels:
+            if s[i+k-1] in vowels:
                 current += 1
 
             maximum = max(maximum, current)
